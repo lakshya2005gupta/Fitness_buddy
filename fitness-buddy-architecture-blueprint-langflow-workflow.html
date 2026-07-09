@@ -1,0 +1,404 @@
+
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Fitness Buddy Diagrams</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, "Segoe UI", system-ui, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    background: #f7f8fa;
+    color: #1f2328;
+  }
+  .page { max-width: 900px; margin: 0 auto; padding: 28px 16px 56px; }
+  h1 { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+  .subtitle { color: #57606a; font-size: 13px; margin-bottom: 32px; }
+  .section { margin-bottom: 52px; }
+  .section-title {
+    font-size: 13px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: .7px; color: #3b82d4;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 6px; margin-bottom: 18px;
+  }
+  .card {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 20px;
+    overflow-x: auto;
+  }
+  .legend {
+    display: flex; flex-wrap: wrap; gap: 14px;
+    margin-top: 14px; font-size: 12px; color: #57606a;
+  }
+  .legend-item { display: flex; align-items: center; gap: 6px; }
+  .swatch { width: 14px; height: 14px; border-radius: 3px; flex-shrink: 0; }
+  footer {
+    text-align: center; font-size: 12px; color: #57606a;
+    border-top: 1px solid #e5e7eb; padding-top: 14px; margin-top: 8px;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <h1>🏋️ Fitness Buddy</h1>
+  <p class="subtitle">Architecture Blueprint &amp; Langflow Workflow · Flask + IBM Watsonx.ai (Llama-3-3-70B)</p>
+
+  
+  <div class="section">
+    <div class="section-title">1 · Architecture Blueprint</div>
+    <div class="card">
+      <svg width="860" height="640" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,'Segoe UI',system-ui,sans-serif">
+        <defs>
+          <marker id="a1">
+            <path d="M0,0 L0,6 L8,3z" fill="#57606a"></path>
+          </marker>
+          <marker id="a-blue">
+            <path d="M0,0 L0,6 L8,3z" fill="#3b82d4"></path>
+          </marker>
+          <marker id="a-green">
+            <path d="M0,0 L0,6 L8,3z" fill="#16a34a"></path>
+          </marker>
+          <marker id="a-gold">
+            <path d="M0,0 L0,6 L8,3z" fill="#ca8a04"></path>
+          </marker>
+          <marker id="a-pur">
+            <path d="M0,0 L0,6 L8,3z" fill="#7c5cd8"></path>
+          </marker>
+          <marker id="a-red">
+            <path d="M0,0 L0,6 L8,3z" fill="#dc2626"></path>
+          </marker>
+        </defs>
+
+        
+        <rect x="10" y="10" width="840" height="150" rx="10" fill="#eff6ff" stroke="#3b82d4" stroke-width="2"></rect>
+        <text x="26" y="32" font-size="13" font-weight="700" fill="#1d4ed8">BROWSER  (Client)</text>
+        <text x="26" y="50" font-size="11" fill="#57606a">Bootstrap 5 · Vanilla JS (main.js) · Fetch API · Dark / Light theme</text>
+
+        
+        <rect x="28" y="65" width="138" height="78" rx="7" fill="#dbeafe" stroke="#3b82d4" stroke-width="1.2"></rect>
+        <text x="97" y="88" font-size="12" font-weight="700" fill="#1e3a8a" text-anchor="middle">💬 Chat UI</text>
+        <text x="97" y="105" font-size="10" fill="#1d4ed8" text-anchor="middle">sendMessage()</text>
+        <text x="97" y="120" font-size="10" fill="#57606a" text-anchor="middle">History tracked</text>
+        <text x="97" y="134" font-size="10" fill="#57606a" text-anchor="middle">in JS array</text>
+
+        
+        <rect x="186" y="65" width="152" height="78" rx="7" fill="#dcfce7" stroke="#16a34a" stroke-width="1.2"></rect>
+        <text x="262" y="88" font-size="12" font-weight="700" fill="#14532d" text-anchor="middle">🏋️ Workout UI</text>
+        <text x="262" y="105" font-size="10" fill="#166534" text-anchor="middle">generateWorkout()</text>
+        <text x="262" y="120" font-size="10" fill="#57606a" text-anchor="middle">duration · level</text>
+        <text x="262" y="134" font-size="10" fill="#57606a" text-anchor="middle">focus · goal</text>
+
+        
+        <rect x="358" y="65" width="152" height="78" rx="7" fill="#fef9c3" stroke="#ca8a04" stroke-width="1.2"></rect>
+        <text x="434" y="88" font-size="12" font-weight="700" fill="#713f12" text-anchor="middle">🥗 Nutrition UI</text>
+        <text x="434" y="105" font-size="10" fill="#854d0e" text-anchor="middle">loadNutrition()</text>
+        <text x="434" y="120" font-size="10" fill="#57606a" text-anchor="middle">goal · diet_type</text>
+        <text x="434" y="134" font-size="10" fill="#57606a" text-anchor="middle">meal cards</text>
+
+        
+        <rect x="530" y="65" width="138" height="78" rx="7" fill="#f3e8ff" stroke="#7c5cd8" stroke-width="1.2"></rect>
+        <text x="599" y="88" font-size="12" font-weight="700" fill="#4c1d95" text-anchor="middle">✅ Habits UI</text>
+        <text x="599" y="105" font-size="10" fill="#6d28d9" text-anchor="middle">updateHabits()</text>
+        <text x="599" y="120" font-size="10" fill="#57606a" text-anchor="middle">6 daily habits</text>
+        <text x="599" y="134" font-size="10" fill="#57606a" text-anchor="middle">ring progress</text>
+
+        
+        <rect x="688" y="65" width="148" height="78" rx="7" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2"></rect>
+        <text x="762" y="88" font-size="12" font-weight="700" fill="#7f1d1d" text-anchor="middle">💬 Motivation</text>
+        <text x="762" y="105" font-size="10" fill="#991b1b" text-anchor="middle">getMotivation()</text>
+        <text x="762" y="120" font-size="10" fill="#57606a" text-anchor="middle">FAB button</text>
+        <text x="762" y="134" font-size="10" fill="#57606a" text-anchor="middle">quote toast</text>
+
+        
+        <line x1="97" y1="215" x2="97" y2="258" stroke="#3b82d4" stroke-width="1.5" marker-end="url(#a-blue)"></line>
+        <line x1="262" y1="215" x2="262" y2="258" stroke="#16a34a" stroke-width="1.5" marker-end="url(#a-green)"></line>
+        <line x1="434" y1="215" x2="434" y2="258" stroke="#ca8a04" stroke-width="1.5" marker-end="url(#a-gold)"></line>
+        <line x1="599" y1="215" x2="599" y2="258" stroke="#7c5cd8" stroke-width="1.5" marker-end="url(#a-pur)"></line>
+        <line x1="762" y1="215" x2="762" y2="258" stroke="#dc2626" stroke-width="1.5" marker-end="url(#a-red)"></line>
+
+        <text x="97" y="242" font-size="9" fill="#3b82d4" text-anchor="middle">POST /api/chat</text>
+        <text x="262" y="242" font-size="9" fill="#16a34a" text-anchor="middle">POST /api/workout</text>
+        <text x="434" y="242" font-size="9" fill="#ca8a04" text-anchor="middle">POST /api/nutrition</text>
+        <text x="599" y="242" font-size="9" fill="#7c5cd8" text-anchor="middle">POST /api/habits</text>
+        <text x="762" y="242" font-size="9" fill="#dc2626" text-anchor="middle">GET /api/motivation</text>
+
+        
+        <rect x="10" y="262" width="840" height="190" rx="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"></rect>
+        <text x="26" y="284" font-size="13" font-weight="700" fill="#15803d">FLASK BACKEND  (app.py)</text>
+        <text x="26" y="302" font-size="11" fill="#57606a">Python 3.9 · Flask 3.0 · Session state · sanitize_input() prompt-injection guard</text>
+
+        
+        <rect x="28" y="314" width="130" height="58" rx="6" fill="#bbf7d0" stroke="#16a34a" stroke-width="1"></rect>
+        <text x="93" y="335" font-size="11" font-weight="700" fill="#14532d" text-anchor="middle">/api/chat</text>
+        <text x="93" y="351" font-size="10" fill="#166534" text-anchor="middle">call_watsonx()</text>
+        <text x="93" y="365" font-size="10" fill="#57606a" text-anchor="middle">history window ×6</text>
+
+        <rect x="174" y="314" width="148" height="58" rx="6" fill="#bbf7d0" stroke="#16a34a" stroke-width="1"></rect>
+        <text x="248" y="335" font-size="11" font-weight="700" fill="#14532d" text-anchor="middle">/api/workout</text>
+        <text x="248" y="351" font-size="10" fill="#166534" text-anchor="middle">WORKOUT_LIBRARY</text>
+        <text x="248" y="365" font-size="10" fill="#57606a" text-anchor="middle">+ AI intro via LLM</text>
+
+        <rect x="338" y="314" width="148" height="58" rx="6" fill="#bbf7d0" stroke="#16a34a" stroke-width="1"></rect>
+        <text x="412" y="335" font-size="11" font-weight="700" fill="#14532d" text-anchor="middle">/api/nutrition</text>
+        <text x="412" y="351" font-size="10" fill="#166534" text-anchor="middle">NUTRITION_PLANS</text>
+        <text x="412" y="365" font-size="10" fill="#57606a" text-anchor="middle">static lookup</text>
+
+        <rect x="502" y="314" width="138" height="58" rx="6" fill="#bbf7d0" stroke="#16a34a" stroke-width="1"></rect>
+        <text x="571" y="335" font-size="11" font-weight="700" fill="#14532d" text-anchor="middle">/api/habits</text>
+        <text x="571" y="351" font-size="10" fill="#166534" text-anchor="middle">Flask session</text>
+        <text x="571" y="365" font-size="10" fill="#57606a" text-anchor="middle">% calc · no LLM</text>
+
+        <rect x="656" y="314" width="180" height="58" rx="6" fill="#bbf7d0" stroke="#16a34a" stroke-width="1"></rect>
+        <text x="746" y="335" font-size="11" font-weight="700" fill="#14532d" text-anchor="middle">/api/motivation</text>
+        <text x="746" y="351" font-size="10" fill="#166534" text-anchor="middle">call_watsonx()</text>
+        <text x="746" y="365" font-size="10" fill="#57606a" text-anchor="middle">quote prompt</text>
+
+        
+        <rect x="28" y="386" width="808" height="52" rx="6" fill="#d1fae5" stroke="#22c55e" stroke-width="1.2"></rect>
+        <text x="432" y="406" font-size="12" font-weight="700" fill="#15803d" text-anchor="middle">AGENT_INSTRUCTIONS — System Prompt (93 lines, injected into every LLM call)</text>
+        <text x="432" y="424" font-size="10" fill="#166534" text-anchor="middle">Personality · Fitness Philosophy · Nutrition (incl. Indian foods) · Workout Rules · Safety Guardrails · Response Format</text>
+
+        
+        <line x1="432" y1="452" x2="432" y2="495" stroke="#57606a" stroke-width="2" marker-end="url(#a1)"></line>
+        <text x="440" y="478" font-size="10" fill="#57606a">build_messages() → model.chat(messages)</text>
+
+        
+        <rect x="10" y="499" width="840" height="72" rx="10" fill="#fef3c7" stroke="#d97706" stroke-width="2"></rect>
+        <text x="26" y="520" font-size="13" font-weight="700" fill="#d97706">ibm-watsonx-ai SDK  (ModelInference)</text>
+        <text x="26" y="538" font-size="11" fill="#57606a">Credentials(url="https://au-syd.ml.cloud.ibm.com", api_key)  ·  ModelInference(model_id, project_id, params)</text>
+        <text x="26" y="556" font-size="11" fill="#92400e">params: max_tokens=800  temperature=0.7  top_p=0.9  repetition_penalty=1.1</text>
+
+        
+        <line x1="432" y1="571" x2="432" y2="607" stroke="#57606a" stroke-width="2" marker-end="url(#a1)"></line>
+        <text x="440" y="594" font-size="10" fill="#57606a">HTTPS  POST /ml/v1/text/chat</text>
+
+        
+        <rect x="10" y="611" width="840" height="26" rx="8" fill="#1e3a8a" stroke="#1e40af" stroke-width="1.5"></rect>
+        <text x="432" y="629" font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle">IBM Watsonx.ai  ·  IBM Cloud (au-syd)  ·  Model: meta-llama/llama-3-3-70b-instruct</text>
+      </svg>
+    </div>
+
+    <div class="legend">
+      <div class="legend-item"><div class="swatch" style="background:#dbeafe;border:1px solid #3b82d4"></div>Browser / Frontend</div>
+      <div class="legend-item"><div class="swatch" style="background:#dcfce7;border:1px solid #16a34a"></div>Flask Routes</div>
+      <div class="legend-item"><div class="swatch" style="background:#fef3c7;border:1px solid #d97706"></div>SDK Layer</div>
+      <div class="legend-item"><div class="swatch" style="background:#1e3a8a"></div>IBM Cloud</div>
+      <div class="legend-item">
+        <svg width="28" height="12" style="flex-shrink:0"><line x1="0" y1="6" x2="28" y2="6" stroke="#57606a" stroke-width="1.5"></line><polygon points="22,3 28,6 22,9" fill="#57606a"></polygon></svg>
+        Fetch / REST (dashed)
+      </div>
+    </div>
+  </div>
+
+
+  
+  <div class="section">
+    <div class="section-title">2 · Langflow Workflow</div>
+    <div class="card">
+      <svg width="860" height="780" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,'Segoe UI',system-ui,sans-serif">
+        <defs>
+          <marker id="lf1"><path d="M0,0 L0,6 L8,3z" fill="#57606a"></path></marker>
+          <marker id="lf-b"><path d="M0,0 L0,6 L8,3z" fill="#3b82d4"></path></marker>
+          <marker id="lf-g"><path d="M0,0 L0,6 L8,3z" fill="#16a34a"></path></marker>
+          <marker id="lf-o"><path d="M0,0 L0,6 L8,3z" fill="#ca8a04"></path></marker>
+          <marker id="lf-pu"><path d="M0,0 L0,6 L8,3z" fill="#7c5cd8"></path></marker>
+          <marker id="lf-r"><path d="M0,0 L0,6 L8,3z" fill="#dc2626"></path></marker>
+          <marker id="lf-or"><path d="M0,0 L0,6 L8,3z" fill="#ea580c"></path></marker>
+        </defs>
+
+        
+        <text x="8" y="68" font-size="9" fill="#9ca3af" text-anchor="middle" transform="rotate(-90,8,68)">INPUT</text>
+        <text x="8" y="198" font-size="9" fill="#9ca3af" text-anchor="middle" transform="rotate(-90,8,198)">GUARD</text>
+        <text x="8" y="338" font-size="9" fill="#9ca3af" text-anchor="middle" transform="rotate(-90,8,338)">PROMPT</text>
+        <text x="8" y="490" font-size="9" fill="#9ca3af" text-anchor="middle" transform="rotate(-90,8,490)">LLM</text>
+        <text x="8" y="628" font-size="9" fill="#9ca3af" text-anchor="middle" transform="rotate(-90,8,628)">PARSE</text>
+        <text x="8" y="742" font-size="9" fill="#9ca3af" text-anchor="middle" transform="rotate(-90,8,742)">OUTPUT</text>
+
+        
+        
+        <rect x="22" y="22" width="160" height="74" rx="8" fill="#dbeafe" stroke="#3b82d4" stroke-width="1.5"></rect>
+        <text x="102" y="44" font-size="12" font-weight="700" fill="#1e3a8a" text-anchor="middle">Chat Input</text>
+        <text x="102" y="60" font-size="10" fill="#1d4ed8" text-anchor="middle">TextInput component</text>
+        <text x="102" y="75" font-size="10" fill="#57606a" text-anchor="middle">user message (string)</text>
+        <text x="102" y="89" font-size="10" fill="#57606a" text-anchor="middle">+ prior chat history[]</text>
+
+        
+        <rect x="310" y="22" width="180" height="74" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"></rect>
+        <text x="400" y="44" font-size="12" font-weight="700" fill="#14532d" text-anchor="middle">Workout Params</text>
+        <text x="400" y="60" font-size="10" fill="#166534" text-anchor="middle">StructuredInput component</text>
+        <text x="400" y="75" font-size="10" fill="#57606a" text-anchor="middle">duration · level · focus</text>
+        <text x="400" y="89" font-size="10" fill="#57606a" text-anchor="middle">goal (string fields)</text>
+
+        
+        <rect x="560" y="22" width="170" height="74" rx="8" fill="#fef9c3" stroke="#ca8a04" stroke-width="1.5"></rect>
+        <text x="645" y="44" font-size="12" font-weight="700" fill="#713f12" text-anchor="middle">Nutrition Params</text>
+        <text x="645" y="60" font-size="10" fill="#854d0e" text-anchor="middle">StructuredInput component</text>
+        <text x="645" y="75" font-size="10" fill="#57606a" text-anchor="middle">goal · diet_type</text>
+        <text x="645" y="89" font-size="10" fill="#57606a" text-anchor="middle">(static lookup — no LLM)</text>
+
+        
+        <rect x="748" y="22" width="100" height="74" rx="8" fill="#f3e8ff" stroke="#7c5cd8" stroke-width="1.5"></rect>
+        <text x="798" y="44" font-size="11" font-weight="700" fill="#4c1d95" text-anchor="middle">Habits Input</text>
+        <text x="798" y="60" font-size="10" fill="#6d28d9" text-anchor="middle">Dict{id:bool}</text>
+        <text x="798" y="75" font-size="10" fill="#57606a" text-anchor="middle">no LLM</text>
+        <text x="798" y="89" font-size="10" fill="#57606a" text-anchor="middle">session only</text>
+
+        
+        <line x1="102" y1="97" x2="102" y2="148" stroke="#3b82d4" stroke-width="1.5" marker-end="url(#lf-b)"></line>
+        <line x1="400" y1="97" x2="400" y2="148" stroke="#16a34a" stroke-width="1.5" marker-end="url(#lf-g)"></line>
+        <line x1="645" y1="97" x2="645" y2="148" stroke="#ca8a04" stroke-width="1.5" marker-end="url(#lf-o)"></line>
+        <line x1="798" y1="97" x2="798" y2="148" stroke="#7c5cd8" stroke-width="1.5" marker-end="url(#lf-pu)"></line>
+
+        
+        
+        <rect x="22" y="150" width="160" height="74" rx="8" fill="#fce7f3" stroke="#db2777" stroke-width="1.5"></rect>
+        <text x="102" y="172" font-size="12" font-weight="700" fill="#831843" text-anchor="middle">Input Guard</text>
+        <text x="102" y="188" font-size="10" fill="#9d174d" text-anchor="middle">sanitize_input(text)</text>
+        <text x="102" y="203" font-size="10" fill="#57606a" text-anchor="middle">regex injection filter</text>
+        <text x="102" y="217" font-size="10" fill="#57606a" text-anchor="middle">truncate → 2000 chars</text>
+
+        
+        <rect x="200" y="150" width="160" height="74" rx="8" fill="#f3e8ff" stroke="#7c5cd8" stroke-width="1.5"></rect>
+        <text x="280" y="172" font-size="12" font-weight="700" fill="#4c1d95" text-anchor="middle">Memory Buffer</text>
+        <text x="280" y="188" font-size="10" fill="#6d28d9" text-anchor="middle">Chat History Store</text>
+        <text x="280" y="203" font-size="10" fill="#57606a" text-anchor="middle">last 6 turns kept</text>
+        <text x="280" y="217" font-size="10" fill="#57606a" text-anchor="middle">token budget control</text>
+
+        
+        <rect x="376" y="150" width="160" height="74" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"></rect>
+        <text x="456" y="172" font-size="12" font-weight="700" fill="#14532d" text-anchor="middle">Workout Router</text>
+        <text x="456" y="188" font-size="10" fill="#166534" text-anchor="middle">WORKOUT_LIBRARY{}</text>
+        <text x="456" y="203" font-size="10" fill="#57606a" text-anchor="middle">key: duration+level</text>
+        <text x="456" y="217" font-size="10" fill="#57606a" text-anchor="middle">15 / 30 / 45 min</text>
+
+        
+        <rect x="552" y="150" width="170" height="74" rx="8" fill="#fef9c3" stroke="#ca8a04" stroke-width="1.5"></rect>
+        <text x="637" y="172" font-size="12" font-weight="700" fill="#713f12" text-anchor="middle">Nutrition Router</text>
+        <text x="637" y="188" font-size="10" fill="#854d0e" text-anchor="middle">NUTRITION_PLANS{}</text>
+        <text x="637" y="203" font-size="10" fill="#57606a" text-anchor="middle">fat_loss / muscle</text>
+        <text x="637" y="217" font-size="10" fill="#57606a" text-anchor="middle">endurance / general</text>
+
+        
+        <rect x="740" y="150" width="108" height="74" rx="8" fill="#f3e8ff" stroke="#7c5cd8" stroke-width="1.5"></rect>
+        <text x="794" y="172" font-size="11" font-weight="700" fill="#4c1d95" text-anchor="middle">Habits Handler</text>
+        <text x="794" y="188" font-size="10" fill="#6d28d9" text-anchor="middle">No LLM call</text>
+        <text x="794" y="203" font-size="10" fill="#57606a" text-anchor="middle">Math % complete</text>
+        <text x="794" y="217" font-size="10" fill="#57606a" text-anchor="middle">session.habits{}</text>
+
+        
+        <line x1="102" y1="225" x2="102" y2="300" stroke="#db2777" stroke-width="1.5" marker-end="url(#lf1)"></line>
+        <line x1="280" y1="225" x2="200" y2="300" stroke="#7c5cd8" stroke-width="1.5" marker-end="url(#lf-pu)"></line>
+        
+        <line x1="456" y1="225" x2="456" y2="440" stroke="#16a34a" stroke-width="1.5" marker-end="url(#lf-g)"></line>
+
+        
+        
+        <rect x="22" y="302" width="338" height="72" rx="8" fill="#fff7ed" stroke="#ea580c" stroke-width="1.5"></rect>
+        <text x="191" y="325" font-size="12" font-weight="700" fill="#7c2d12" text-anchor="middle">Prompt Builder  — build_messages()</text>
+        <text x="191" y="342" font-size="10" fill="#9a3412" text-anchor="middle">[{role:"system", content: AGENT_INSTRUCTIONS}]</text>
+        <text x="191" y="357" font-size="10" fill="#57606a" text-anchor="middle">+ history[-6:] turns  +  {role:"user", content: clean_message}</text>
+        <text x="191" y="371" font-size="10" fill="#57606a" text-anchor="middle">Final list of messages passed to model.chat()</text>
+
+        
+        <rect x="376" y="302" width="346" height="72" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5"></rect>
+        <text x="549" y="325" font-size="12" font-weight="700" fill="#0c4a6e" text-anchor="middle">AGENT_INSTRUCTIONS  (System Prompt Node)</text>
+        <text x="549" y="342" font-size="10" fill="#075985" text-anchor="middle">Personality · Safety Rules · Fitness Philosophy · Nutrition</text>
+        <text x="549" y="357" font-size="10" fill="#57606a" text-anchor="middle">Workout Planning · Habit Coaching · Response Format</text>
+        <text x="549" y="371" font-size="10" fill="#57606a" text-anchor="middle">Injected as position[0] on EVERY model call</text>
+
+        
+        <line x1="376" y1="338" x2="362" y2="338" stroke="#0284c7" stroke-width="1.5" marker-end="url(#lf-b)"></line>
+
+        
+        <line x1="191" y1="374" x2="380" y2="438" stroke="#ea580c" stroke-width="2" marker-end="url(#lf-or)"></line>
+
+        
+        <rect x="200" y="442" width="420" height="86" rx="10" fill="#1e3a8a" stroke="#1e40af" stroke-width="2"></rect>
+        <text x="410" y="466" font-size="14" font-weight="700" fill="#ffffff" text-anchor="middle">IBM Watsonx.ai — LLM Node</text>
+        <text x="410" y="484" font-size="11" fill="#bfdbfe" text-anchor="middle">ModelInference.chat(messages=messages)</text>
+        <text x="410" y="500" font-size="10" fill="#93c5fd" text-anchor="middle">model: meta-llama/llama-3-3-70b-instruct  ·  region: au-syd</text>
+        <text x="410" y="516" font-size="10" fill="#7dd3fc" text-anchor="middle">max_tokens=800  ·  temperature=0.7  ·  top_p=0.9  ·  rep_penalty=1.1</text>
+
+        
+        <line x1="410" y1="528" x2="410" y2="574" stroke="#bfdbfe" stroke-width="2" marker-end="url(#lf1)"></line>
+
+        
+        <rect x="200" y="576" width="420" height="72" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"></rect>
+        <text x="410" y="598" font-size="12" font-weight="700" fill="#14532d" text-anchor="middle">Response Parser  —  call_watsonx()</text>
+        <text x="410" y="614" font-size="10" fill="#166534" text-anchor="middle">choices[0]["message"]["content"].strip()</text>
+        <text x="410" y="630" font-size="10" fill="#57606a" text-anchor="middle">Fallback A: Demo Mode (no credentials)  ·  Fallback B: Exception → error message</text>
+        <text x="410" y="644" font-size="10" fill="#57606a" text-anchor="middle">Returns plain string reply to route handler</text>
+
+        
+        <line x1="310" y1="648" x2="100" y2="700" stroke="#3b82d4" stroke-width="1.5" marker-end="url(#lf-b)"></line>
+        <line x1="360" y1="648" x2="270" y2="700" stroke="#16a34a" stroke-width="1.5" marker-end="url(#lf-g)"></line>
+        <line x1="460" y1="648" x2="560" y2="700" stroke="#ca8a04" stroke-width="1.5" marker-end="url(#lf-o)"></line>
+        <line x1="510" y1="648" x2="700" y2="700" stroke="#dc2626" stroke-width="1.5" marker-end="url(#lf-r)"></line>
+
+        
+        <line x1="637" y1="225" x2="637" y2="688" stroke="#ca8a04" stroke-width="1.5"></line>
+        <line x1="637" y1="688" x2="610" y2="700" stroke="#ca8a04" stroke-width="1.5" marker-end="url(#lf-o)"></line>
+
+        
+        <line x1="794" y1="225" x2="794" y2="688" stroke="#7c5cd8" stroke-width="1.5"></line>
+        <line x1="794" y1="688" x2="806" y2="700" stroke="#7c5cd8" stroke-width="1.5" marker-end="url(#lf-pu)"></line>
+
+        
+        
+        <rect x="22" y="702" width="148" height="66" rx="8" fill="#dbeafe" stroke="#3b82d4" stroke-width="1.5"></rect>
+        <text x="96" y="724" font-size="11" font-weight="700" fill="#1e3a8a" text-anchor="middle">Chat Response</text>
+        <text x="96" y="740" font-size="10" fill="#1d4ed8" text-anchor="middle">{"reply": "..."}</text>
+        <text x="96" y="755" font-size="10" fill="#57606a" text-anchor="middle">Chat bubble render</text>
+
+        
+        <rect x="188" y="702" width="160" height="66" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"></rect>
+        <text x="268" y="724" font-size="11" font-weight="700" fill="#14532d" text-anchor="middle">Workout Response</text>
+        <text x="268" y="740" font-size="10" fill="#166534" text-anchor="middle">{workout[], ai_intro}</text>
+        <text x="268" y="755" font-size="10" fill="#57606a" text-anchor="middle">Exercise card list</text>
+
+        
+        <rect x="500" y="702" width="160" height="66" rx="8" fill="#fef9c3" stroke="#ca8a04" stroke-width="1.5"></rect>
+        <text x="580" y="724" font-size="11" font-weight="700" fill="#713f12" text-anchor="middle">Nutrition Response</text>
+        <text x="580" y="740" font-size="10" fill="#854d0e" text-anchor="middle">{plan{}, goal, diet_type}</text>
+        <text x="580" y="755" font-size="10" fill="#57606a" text-anchor="middle">Meal section cards</text>
+
+        
+        <rect x="672" y="702" width="150" height="66" rx="8" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"></rect>
+        <text x="747" y="724" font-size="11" font-weight="700" fill="#7f1d1d" text-anchor="middle">Motivation Response</text>
+        <text x="747" y="740" font-size="10" fill="#991b1b" text-anchor="middle">{"quote": "..."}</text>
+        <text x="747" y="755" font-size="10" fill="#57606a" text-anchor="middle">Toast notification</text>
+
+        
+        <rect x="356" y="702" width="132" height="66" rx="8" fill="#f3e8ff" stroke="#7c5cd8" stroke-width="1.5"></rect>
+        <text x="422" y="724" font-size="11" font-weight="700" fill="#4c1d95" text-anchor="middle">Habits Response</text>
+        <text x="422" y="740" font-size="10" fill="#6d28d9" text-anchor="middle">{percent, message}</text>
+        <text x="422" y="755" font-size="10" fill="#57606a" text-anchor="middle">Ring progress UI</text>
+
+        
+        <line x1="794" y1="688" x2="488" y2="702" stroke="#7c5cd8" stroke-width="1.5" marker-end="url(#lf-pu)"></line>
+
+      </svg>
+    </div>
+
+    <div class="legend">
+      <div class="legend-item"><div class="swatch" style="background:#dbeafe;border:1px solid #3b82d4"></div>Chat flow</div>
+      <div class="legend-item"><div class="swatch" style="background:#dcfce7;border:1px solid #16a34a"></div>Workout flow</div>
+      <div class="legend-item"><div class="swatch" style="background:#fef9c3;border:1px solid #ca8a04"></div>Nutrition flow</div>
+      <div class="legend-item"><div class="swatch" style="background:#f3e8ff;border:1px solid #7c5cd8"></div>Habits flow</div>
+      <div class="legend-item"><div class="swatch" style="background:#fee2e2;border:1px solid #dc2626"></div>Motivation flow</div>
+      <div class="legend-item"><div class="swatch" style="background:#1e3a8a"></div>IBM Watsonx.ai LLM</div>
+      <div class="legend-item">
+        <svg width="30" height="12" style="flex-shrink:0"><line x1="0" y1="6" x2="26" y2="6" stroke="#57606a" stroke-width="1.5"></line><polygon points="20,3 28,6 20,9" fill="#57606a"></polygon></svg>
+        Static bypass (no LLM call)
+      </div>
+    </div>
+  </div>
+
+</div>
+<footer>Made with IBM Bob</footer>
+</body>
+</html>
