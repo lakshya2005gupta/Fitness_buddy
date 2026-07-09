@@ -1,0 +1,468 @@
+{% extends "base.html" %}
+
+{% block title %}Fitness Buddy — AI-Powered Coach{% endblock %}
+
+{% block content %}
+
+<!-- ══════════════════════════════════════════════════════════════
+     HERO SECTION
+     ══════════════════════════════════════════════════════════════ -->
+<section class="hero-section">
+  <div class="container px-3 px-lg-4">
+    <div class="row align-items-center">
+      <div class="col-lg-7">
+        <div class="hero-badge">
+          <i class="bi bi-stars"></i> Powered by IBM Watsonx.ai · Granite
+        </div>
+        <h1 class="hero-title">
+          Your Personal<br>
+          <span class="highlight">AI Fitness Coach</span><br>
+          Is Ready.
+        </h1>
+        <p class="hero-subtitle">
+          Get tailored workouts, smart nutrition advice, and daily habit coaching —
+          all powered by IBM Granite AI, designed for your lifestyle.
+        </p>
+        <div class="d-flex flex-wrap gap-3 mt-3">
+          <button class="btn btn-accent" onclick="openChat()">
+            <i class="bi bi-robot me-2"></i>Chat with AI Coach
+          </button>
+          <a href="#workout-section" class="btn btn-outline-accent">
+            <i class="bi bi-activity me-2"></i>Plan My Workout
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="stat-number">5+</div>
+            <div class="stat-label">AI Features</div>
+          </div>
+          <div class="hero-stat">
+            <div class="stat-number">30+</div>
+            <div class="stat-label">Exercises</div>
+          </div>
+          <div class="hero-stat">
+            <div class="stat-number">4</div>
+            <div class="stat-label">Diet Plans</div>
+          </div>
+          <div class="hero-stat">
+            <div class="stat-number">6</div>
+            <div class="stat-label">Daily Habits</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-5 d-none d-lg-flex justify-content-center align-items-center mt-4 mt-lg-0">
+        <!-- Decorative Stats Panel -->
+        <div class="fb-card p-0 overflow-hidden" style="width:300px">
+          <div class="p-3 border-bottom border-fb d-flex align-items-center gap-2">
+            <div class="card-icon purple"><i class="bi bi-robot"></i></div>
+            <div>
+              <div class="fw-bold" style="font-size:0.85rem">AI Coach Active</div>
+              <div style="font-size:0.72rem;color:var(--success)">● IBM Granite Online</div>
+            </div>
+          </div>
+          <div class="p-3">
+            <div class="d-flex justify-content-between mb-2">
+              <span style="font-size:0.82rem;color:var(--text-muted)">Weekly Goal</span>
+              <span class="fb-badge accent">72%</span>
+            </div>
+            <div class="fb-progress mb-3">
+              <div class="fb-progress-bar" style="width:72%"></div>
+            </div>
+            <div class="d-flex justify-content-between mb-2">
+              <span style="font-size:0.82rem;color:var(--text-muted)">Calories Today</span>
+              <span class="fb-badge success">On Track</span>
+            </div>
+            <div class="fb-progress mb-3">
+              <div class="fb-progress-bar teal" style="width:58%"></div>
+            </div>
+            <div class="d-flex justify-content-between mb-2">
+              <span style="font-size:0.82rem;color:var(--text-muted)">Habits Done</span>
+              <span id="heroBadgeHabits" class="fb-badge warning">0 / 6</span>
+            </div>
+            <div class="fb-progress">
+              <div class="fb-progress-bar amber" id="heroProgressBar" style="width:0%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════
+     SECTION 1 — DASHBOARD OVERVIEW
+     ══════════════════════════════════════════════════════════════ -->
+<section id="dashboard-section" class="py-5">
+  <div class="container px-3 px-lg-4">
+
+    <!-- Today's date banner -->
+    <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-4">
+      <div>
+        <p class="text-muted small mb-0"><i class="bi bi-calendar3 me-1"></i>{{ today }}</p>
+        <h2 class="section-title mb-0">Today's Dashboard</h2>
+      </div>
+      <span class="fb-badge accent"><i class="bi bi-lightning-fill me-1"></i>Live Stats</span>
+    </div>
+
+    <!-- Metric cards row -->
+    <div class="row g-3 mb-4">
+      <div class="col-6 col-md-3">
+        <div class="metric-card purple">
+          <div class="metric-label">Daily Streak</div>
+          <div class="metric-number" id="streakCount">1</div>
+          <div class="metric-delta text-muted">
+            <i class="bi bi-fire" style="color:var(--warning)"></i> Days in a row
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="metric-card teal">
+          <div class="metric-label">Habits Done</div>
+          <div class="metric-number" id="habitsDoneCount">0</div>
+          <div class="metric-delta text-muted">out of 6 today</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="metric-card amber">
+          <div class="metric-label">Workouts</div>
+          <div class="metric-number" id="workoutCount">0</div>
+          <div class="metric-delta text-muted">this week</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="metric-card blue">
+          <div class="metric-label">Completion</div>
+          <div class="metric-number" id="completionPct">0%</div>
+          <div class="metric-delta text-muted">habit score today</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Motivation + Daily Progress row -->
+    <div class="row g-3">
+      <!-- Daily Motivation -->
+      <div class="col-md-7">
+        <div class="motivation-card">
+          <div class="d-flex justify-content-between align-items-start">
+            <div class="fb-badge" style="background:rgba(255,255,255,0.15);border-color:rgba(255,255,255,0.3);color:#fff;margin-bottom:0.75rem">
+              <i class="bi bi-stars"></i> Daily Motivation
+            </div>
+            <button class="motivation-refresh btn" id="refreshMotivation" onclick="fetchMotivation()">
+              <i class="bi bi-arrow-clockwise me-1"></i>Refresh
+            </button>
+          </div>
+          <div class="motivation-quote" id="motivationQuote">
+            <!-- Loaded by JS -->
+            <div class="skeleton skeleton-text wide"></div>
+            <div class="skeleton skeleton-text medium"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick habit progress ring -->
+      <div class="col-md-5">
+        <div class="fb-card text-center h-100 d-flex flex-column justify-content-center">
+          <div class="fb-card-header justify-content-center mb-2">
+            <div class="card-icon teal"><i class="bi bi-check2-circle"></i></div>
+            <h6>Today's Progress</h6>
+          </div>
+          <div class="habit-ring">
+            <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:#6c63ff"/>
+                  <stop offset="100%" style="stop-color:#2dd4a7"/>
+                </linearGradient>
+              </defs>
+              <circle class="ring-bg" cx="40" cy="40" r="36"/>
+              <circle class="ring-fg" id="habitRing" cx="40" cy="40" r="36"/>
+              <text class="ring-text" x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" id="ringLabel">0%</text>
+            </svg>
+          </div>
+          <p id="habitProgressMsg" class="text-muted small px-2">Start checking off your habits below!</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="section-divider mx-4">
+
+<!-- ══════════════════════════════════════════════════════════════
+     SECTION 2 — HABIT TRACKER
+     ══════════════════════════════════════════════════════════════ -->
+<section id="habits-section" class="py-4">
+  <div class="container px-3 px-lg-4">
+    <div class="d-flex align-items-center gap-2 mb-1">
+      <div class="card-icon teal"><i class="bi bi-check2-all"></i></div>
+      <h2 class="section-title mb-0">Daily Habit Tracker</h2>
+    </div>
+    <p class="section-subtitle">Build momentum by ticking off these key habits every day.</p>
+
+    <div class="row g-3">
+      {% for habit in habits %}
+      <div class="col-12 col-sm-6 col-lg-4">
+        <div
+          class="habit-item"
+          id="habit-{{ habit.id }}"
+          role="checkbox"
+          aria-checked="false"
+          tabindex="0"
+          data-habit="{{ habit.id }}"
+          onclick="toggleHabit('{{ habit.id }}')"
+          onkeypress="if(event.key==='Enter'||event.key===' ')toggleHabit('{{ habit.id }}')"
+        >
+          <div class="habit-checkbox" id="hcheck-{{ habit.id }}">
+            <i class="bi bi-check-lg" style="display:none;font-size:0.75rem"></i>
+          </div>
+          <span class="habit-icon">{{ habit.icon }}</span>
+          <span class="habit-label">{{ habit.label }}</span>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <!-- Habit feedback alert -->
+    <div id="habitAlert" class="fb-alert mt-3 d-none"></div>
+
+  </div>
+</section>
+
+<hr class="section-divider mx-4">
+
+<!-- ══════════════════════════════════════════════════════════════
+     SECTION 3 — WORKOUT PLANNER
+     ══════════════════════════════════════════════════════════════ -->
+<section id="workout-section" class="py-4">
+  <div class="container px-3 px-lg-4">
+    <div class="d-flex align-items-center gap-2 mb-1">
+      <div class="card-icon purple"><i class="bi bi-activity"></i></div>
+      <h2 class="section-title mb-0">Home Workout Planner</h2>
+    </div>
+    <p class="section-subtitle">No equipment needed. Pick your time, level, and goal — the AI does the rest.</p>
+
+    <div class="row g-4">
+      <!-- Configuration Panel -->
+      <div class="col-lg-4">
+        <div class="fb-card">
+          <div class="fb-card-header">
+            <div class="card-icon purple"><i class="bi bi-sliders"></i></div>
+            <h5>Workout Settings</h5>
+          </div>
+
+          <!-- Duration selector -->
+          <div class="mb-3">
+            <label class="form-label"><i class="bi bi-clock me-1"></i>Available Time</label>
+            <div class="d-flex gap-2">
+              <button class="duration-btn active" data-duration="15" onclick="selectDuration(this)">15 min</button>
+              <button class="duration-btn"         data-duration="30" onclick="selectDuration(this)">30 min</button>
+              <button class="duration-btn"         data-duration="45" onclick="selectDuration(this)">45 min</button>
+            </div>
+          </div>
+
+          <!-- Fitness level -->
+          <div class="mb-3">
+            <label class="form-label" for="fitnessLevel"><i class="bi bi-bar-chart me-1"></i>Fitness Level</label>
+            <select class="fb-select" id="fitnessLevel">
+              <option value="beginner">🌱 Beginner</option>
+              <option value="intermediate" selected>⚡ Intermediate</option>
+              <option value="advanced">🔥 Advanced</option>
+            </select>
+          </div>
+
+          <!-- Focus area -->
+          <div class="mb-3">
+            <label class="form-label" for="focusArea"><i class="bi bi-bullseye me-1"></i>Focus Area</label>
+            <select class="fb-select" id="focusArea">
+              <option value="full body">Full Body</option>
+              <option value="upper body">Upper Body</option>
+              <option value="lower body">Lower Body</option>
+              <option value="core & abs">Core & Abs</option>
+              <option value="cardio">Cardio & Endurance</option>
+              <option value="flexibility">Flexibility & Mobility</option>
+            </select>
+          </div>
+
+          <!-- Goal -->
+          <div class="mb-4">
+            <label class="form-label" for="workoutGoal"><i class="bi bi-trophy me-1"></i>Goal</label>
+            <select class="fb-select" id="workoutGoal">
+              <option value="fat loss">Fat Loss</option>
+              <option value="muscle gain">Muscle Gain</option>
+              <option value="endurance">Build Endurance</option>
+              <option value="general fitness">General Fitness</option>
+              <option value="stress relief">Stress Relief</option>
+            </select>
+          </div>
+
+          <button class="btn btn-accent w-100" id="generateWorkoutBtn" onclick="generateWorkout()">
+            <i class="bi bi-play-fill me-2"></i>Generate Workout
+          </button>
+        </div>
+      </div>
+
+      <!-- Results Panel -->
+      <div class="col-lg-8">
+        <div class="fb-card">
+          <div class="fb-card-header justify-content-between">
+            <div class="d-flex align-items-center gap-2">
+              <div class="card-icon teal"><i class="bi bi-list-check"></i></div>
+              <h5 class="mb-0">Your Workout</h5>
+            </div>
+            <div id="workoutMeta" class="d-flex gap-2 flex-wrap d-none">
+              <span class="fb-badge accent" id="wDurationBadge"></span>
+              <span class="fb-badge success" id="wLevelBadge"></span>
+            </div>
+          </div>
+
+          <!-- AI Intro -->
+          <div id="workoutAiIntro" class="fb-alert info mb-3 d-none">
+            <i class="bi bi-robot me-2"></i><span id="workoutAiIntroText"></span>
+          </div>
+
+          <!-- Table / placeholder -->
+          <div id="workoutTableWrap">
+            <div class="text-center py-5 text-muted">
+              <i class="bi bi-activity fs-1 mb-3 d-block" style="opacity:0.3"></i>
+              <p class="mb-0">Configure your workout settings and click <strong>Generate Workout</strong> to get started.</p>
+            </div>
+          </div>
+
+          <!-- Warm-up / cool-down reminder -->
+          <div id="workoutFooterNote" class="mt-3 d-none">
+            <div class="fb-alert warning">
+              <i class="bi bi-exclamation-triangle me-2"></i>
+              <strong>Remember:</strong> Always warm up for 3–5 minutes before and cool down / stretch for 5 minutes after your workout.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider mx-4">
+
+<!-- ══════════════════════════════════════════════════════════════
+     SECTION 4 — NUTRITION PLANNER
+     ══════════════════════════════════════════════════════════════ -->
+<section id="nutrition-section" class="py-4">
+  <div class="container px-3 px-lg-4">
+    <div class="d-flex align-items-center gap-2 mb-1">
+      <div class="card-icon amber"><i class="bi bi-egg-fried"></i></div>
+      <h2 class="section-title mb-0">Nutrition & Meal Planner</h2>
+    </div>
+    <p class="section-subtitle">Smart, accessible meal ideas tailored to your goal — including Indian vegetarian & non-veg options.</p>
+
+    <div class="row g-4">
+      <!-- Controls -->
+      <div class="col-lg-4">
+        <div class="fb-card">
+          <div class="fb-card-header">
+            <div class="card-icon amber"><i class="bi bi-sliders"></i></div>
+            <h5>Plan Settings</h5>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label" for="nutritionGoal"><i class="bi bi-trophy me-1"></i>Your Goal</label>
+            <select class="fb-select" id="nutritionGoal">
+              <option value="fat_loss">🔥 Fat Loss</option>
+              <option value="muscle_gain">💪 Muscle Gain</option>
+              <option value="endurance">🏃 Endurance</option>
+              <option value="general">⚖️ General Health</option>
+            </select>
+          </div>
+
+          <div class="mb-4">
+            <label class="form-label" for="dietType"><i class="bi bi-heart me-1"></i>Diet Preference</label>
+            <select class="fb-select" id="dietType">
+              <option value="non-veg">🍗 Non-Vegetarian</option>
+              <option value="veg">🥦 Vegetarian</option>
+              <option value="vegan">🌱 Vegan</option>
+            </select>
+          </div>
+
+          <button class="btn btn-accent w-100" id="loadNutritionBtn" onclick="loadNutrition()">
+            <i class="bi bi-search me-2"></i>Get Meal Plan
+          </button>
+
+          <!-- Macro tip box -->
+          <div id="macroTipBox" class="mt-3 d-none">
+            <div class="d-flex align-items-center gap-2 mb-1">
+              <i class="bi bi-info-circle" style="color:var(--info)"></i>
+              <span class="fw-semibold" style="font-size:0.82rem">Macro Split</span>
+            </div>
+            <p id="macroTipText" class="text-muted small mb-1"></p>
+            <p id="calorieTipText" class="fw-semibold" style="font-size:0.85rem;color:var(--accent)"></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Meal Plan Display -->
+      <div class="col-lg-8">
+        <div id="nutritionResults">
+          <div class="fb-card text-center py-5 text-muted">
+            <i class="bi bi-egg-fried fs-1 d-block mb-3" style="opacity:0.3"></i>
+            <p class="mb-0">Select your goal and diet preference, then click <strong>Get Meal Plan</strong>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider mx-4">
+
+<!-- ══════════════════════════════════════════════════════════════
+     SECTION 5 — QUICK ASK PROMPTS (Chat Shortcuts)
+     ══════════════════════════════════════════════════════════════ -->
+<section class="py-4 pb-5">
+  <div class="container px-3 px-lg-4">
+    <div class="d-flex align-items-center gap-2 mb-1">
+      <div class="card-icon blue"><i class="bi bi-chat-dots"></i></div>
+      <h2 class="section-title mb-0">Ask the AI Coach</h2>
+    </div>
+    <p class="section-subtitle">Tap any question to instantly send it to your AI coach, or open the chat to ask anything.</p>
+
+    <div class="row g-3">
+      {% set prompts = [
+        ("bi-activity",      "purple", "Create a 20-min beginner HIIT workout for fat loss"),
+        ("bi-egg-fried",     "amber",  "High-protein vegetarian meal ideas for muscle gain"),
+        ("bi-heart-pulse",   "red",    "Best exercises with knee pain — safe alternatives"),
+        ("bi-moon-stars",    "blue",   "How to improve sleep quality for better recovery?"),
+        ("bi-droplet",       "teal",   "How much water should I drink during workouts?"),
+        ("bi-graph-up-arrow","purple", "How long until I see results from working out daily?"),
+        ("bi-patch-check",   "amber",  "5 easy habits to start a healthy lifestyle today"),
+        ("bi-person-arms-up","red",    "Morning stretching routine to start the day right"),
+      ] %}
+      {% for icon, color, prompt in prompts %}
+      <div class="col-md-6 col-lg-3">
+        <div
+          class="fb-card quick-prompt"
+          role="button"
+          tabindex="0"
+          style="cursor:pointer"
+          onclick="openChatWithMessage('{{ prompt }}')"
+          onkeypress="if(event.key==='Enter')openChatWithMessage('{{ prompt }}')"
+        >
+          <div class="d-flex gap-2 align-items-start">
+            <div class="card-icon {{ color }} flex-shrink-0 mt-1">
+              <i class="bi {{ icon }}"></i>
+            </div>
+            <p class="mb-0 small fw-500" style="font-size:0.87rem;line-height:1.45">{{ prompt }}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="text-center mt-4">
+      <button class="btn btn-accent" onclick="openChat()">
+        <i class="bi bi-robot me-2"></i>Open Full AI Chat
+      </button>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

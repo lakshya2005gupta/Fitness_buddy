@@ -1,0 +1,16 @@
+# ─────────────────────────────────────────────
+#  FITNESS BUDDY — Python Dependencies
+#  Install with: pip install -r requirements.txt
+# ─────────────────────────────────────────────
+
+# Web framework
+Flask>=3.0.0,<4.0.0
+
+# IBM Watsonx.ai SDK (includes ibm-cloud-sdk-core)
+ibm-watsonx-ai>=1.1.0
+
+# Environment variable management
+python-dotenv>=1.0.0
+
+# Production WSGI server (Windows)
+waitress>=3.0.0
